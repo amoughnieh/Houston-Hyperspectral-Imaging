@@ -17,21 +17,21 @@ The images in general were not noisy, however, some spectral bands had what seem
 
 Because this noise was extremely sparse, I had to carefully tune the hyperparameters in order to avoid removing important features. Results below:
 
-![Raw HSI](output/127th%20HSI%20-%20Raw%20HSI.png)
+![Raw HSI](output/127th-HSI-Raw-HSI.png)
 
-![Denoised Low Rank Component](output/127th%20HSI%20-%20Denoised%20(Low%20Rank%20Component).png)
+![Denoised Low Rank Component](output/127th-HSI-Denoised-(Low-Rank-Component).png)
 
-![Noise Component](output/127th%20HSI%20-%20Noise%20Component.png)
+![Noise Component](output/127th-HSI-Noise-Component.png)
 
 The training set is generally balanced. Interestingly though, the area covered by the cloud was excluded, which is where most of the misclassification happened. I assume is was by design.
 
-![Training indices](output/Ground%20Truth%20-%20Training.png)
+![Training indices](output/Ground-Truth-Training.png)
 
-![Testing indices](output/Ground%20Truth%20-%20Testing.png)
+![Testing indices](output/Ground-Truth-Testing.png)
 
-![Training + testing indices](output/Ground%20Truth%20-%20Training%20+%20Testing.png)
+![Training + testing indices](output/Ground-Truth-Training-+-Testing.png)
 
-![Regions of Interest](output/Regions%20of%20Interest%20(ROI).png)
+![Regions of Interest](output/Regions-of-Interest-(ROI).png)
 
 The LiDAR image did not seem to be affected by the cloud, so in theory, adding it to the dataset should improve accuracy.
 
@@ -45,7 +45,7 @@ Denoising the HSIs was not useful for the SVM model, and even though the chart i
 
 I picked the below models because I had to fix the seed to make it reproducible. In saying that, using a NN with either dataset combined with the LiDAR image consistently produced accuracy between 81% and 83%.
 
-![Model accuracy chart](output/models%20comparision.png)
+![Model accuracy chart](output/models-comparision.png)
 
 By examining the mapped predictions below (I used the entire dataset, not just the test set), the shadow area has the poorest prediction, especially for the SVM model, where adding the LiDAR did not seem to affect the shadow region.
 
@@ -53,26 +53,48 @@ The SNN has a better prediction accuracy in the shadow area, especially with the
 
 ### SVM Predictions:
 
-![raw prediction](output/SVM%20Predicted%20Classes%20-%20Raw%20Data.png)
+![raw prediction](output/SVM-Predicted-Classes-Raw-Data.png)
 
-![denoised prediction](output/SVM%20Predicted%20Classes%20-%20Denoised%20Data.png)
+![denoised prediction](output/SVM-Predicted-Classes-Denoised-Data.png)
 
-![raw with lidar prediction](output/SVM%20Predicted%20Classes%20-%20Raw%20+%20LiDAR%20Data.png)
+![raw with lidar prediction](output/SVM-Predicted-Classes-Raw-+-LiDAR-Data.png)
 
-![denoised with lidar prediction](output/SVM%20Predicted%20Classes%20-%20Denoised%20+%20LiDAR%20Data.png)
+![denoised with lidar prediction](output/SVM-Predicted-Classes-Denoised-+-LiDAR-Data.png)
 
 ### SNN Predictions:
 
-![raw prediction](output/NN%20Predicted%20Classes%20-%20Raw%20Data.png)
+![raw prediction](output/NN-Predicted-Classes-Raw-Data.png)
 
-![denoised prediction](output/NN%20Predicted%20Classes%20-%20Denoised%20Data.png)
+![denoised prediction](output/NN-Predicted-Classes-Denoised-Data.png)
 
-![raw with lidar prediction](output/NN%20Predicted%20Classes%20-%20Raw%20+%20LiDAR%20Data.png)
+![raw with lidar prediction](output/NN-Predicted-Classes-Raw-+-LiDAR-Data.png)
 
-![denoised with lidar prediction](output/NN%20Predicted%20Classes%20-%20Denoised%20+%20LiDAR%20Data.png)
+![denoised with lidar prediction](output/NN-Predicted-Classes-Denoised-+-LiDAR-Data.png)
 
 ## Conclusion:
 
 Even though the classes in the training set were balanced, the data was not balanced spatially, this is probably to make it a more challenging problem for the purposes of the competition.
 
 In a real world scenario, it would be expected to train the model on data collected under different kinds of conditions, including shadows caused by clouds, in which case the models we used proved to perform very well, and the LiDAR image might not even be needed.
+
+## Project Structure:
+
+[Main Notebook](main-Houston-HSI.ipynb)
+
+[Used Packages](used_packages.py)
+
+[Data Processing](data.py)
+
+-   [Data Folder](data) (HSI were excluded due to large size. Refer to the contest webpage for the full dataset)
+
+[Classification Models](models.py)
+
+[Utility Functions](utils.py)
+
+[RPCA Image Decomposition](RPCA.py)
+
+[Saved NN Models](saved%20models/best%20models)
+
+## Author:
+
+Ali Moughnieh: [\@amoughnieh](https://github.com/amoughnieh)
