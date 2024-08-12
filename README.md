@@ -4,6 +4,24 @@ The dataset was part of the [2013 Data Fusion Contest](https://hyperspectral.ee.
 
 The project combines Hyperspectral images (HSI) with LiDAR images to improve the classification accuracy of data collected from remote sensing devices.
 
+This is a multi-classification problem with 15 regions of interest (ROIs). The regions are defined as follow:
+
+1 -- Healthy grass\
+2 -- Stressed grass\
+3 -- Synthetic grass\
+4 -- Trees\
+5 -- Soil\
+6 -- Water\
+7 -- Residential\
+8 -- Commercial\
+9 -- Road\
+10 -- Highway\
+11 -- Railway\
+12 -- Parking Lot 1\
+13 -- Parking Lot 2\
+14 -- Tennis Court\
+15 -- Running Track
+
 I compared SVM to Simple Neural Network using 4 sets of data:
 
 1.  Raw HSIs
