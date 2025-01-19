@@ -136,7 +136,6 @@ Key observations:
 
 ### Prediction Visualizations
 
-These visualizations should be compared side-by-side with the ground truths in Figure 1 and 2.
 
 ### SVM Predictions:
 
