@@ -64,11 +64,14 @@ def load_nn(n_images, model_path):
 #%%
 
 def plot_image(image, title, fig_size=(10, 10), cmap='gray', fs=25, vmin=None, vmax=None, save=False):
+    import re
     plt.figure(figsize=fig_size)
     plt.imshow(image, cmap=cmap, vmin=vmin, vmax=vmax)
     plt.title(title, fontsize=fs)
     plt.xticks([]), plt.yticks([])
     if save is True:
+        pattern = r'(\s?-\s?)|(\s)+'
+        title = re.sub(pattern, '-', title)
         plt.savefig(f'{title}.png', bbox_inches='tight')
     plt.show()
 
