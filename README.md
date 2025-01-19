@@ -28,20 +28,31 @@ This is a multi-classification problem with 15 regions of interest (ROIs):
 The project combines Hyperspectral images (HSI) with LiDAR images to improve the classification accuracy of data collected from remote sensing devices.\
 The training set is generally balanced. Interestingly, the area covered by the cloud was excluded (presumably by design), which is where most misclassification occurred.
 
-![Training indices](output/Ground-Truth-Training.png)
-<p align="center"> <em>Figure 1: Training Indices</em> </p>
+<div align="center">
+  <img src="output/Ground-Truth-Training.png" alt="Training indices" style="margin-bottom: 0;">
+  <p><em>Figure 1: Training Indices</em></p>
+</div>
 
-![Testing indices](output/Ground-Truth-Testing.png)
-<p align="center"> <em>Figure 2: Testing Indices</em> </p>
+<div align="center">
+  <img src="output/Ground-Truth-Testing.png" alt="Testing indices" style="margin-bottom: 0;">
+  <p><em>Figure 2: Testing Indices</em></p>
+</div>
 
-![Training + testing indices](output/Ground-Truth-Training-+-Testing.png)
-<p align="center"> <em>Figure 3: Combined Training and Testing Indices</em> </p>
+<div align="center">
+  <img src="output/Ground-Truth-Training-+-Testing.png" alt="Training + Testing indices" style="margin-bottom: 0;">
+  <p><em>Figure 3: Combined Training and Testing Indices</em></p>
+</div>
 
-![Regions of Interest](output/Regions-of-Interest-(ROI).png)
-<p align="center"> <em>Figure 4: Regions of Interest</em> </p>
+<div align="center">
+  <img src="output/Regions-of-Interest-(ROI).png" alt="Regions of Interest" style="margin-bottom: 0;">
+  <p><em>Figure 4: Regions of Interest</em></p>
+</div>
 
-![Lidar](output/LiDAR.png)
-<p align="center"> <em>Figure 5: LiDAR Image</em> </p>
+<div align="center">
+  <img src="output/LiDAR.png" alt="Lidar" style="margin-bottom: 0;">
+  <p><em>Figure 5: LiDAR Image</em></p>
+</div>
+
 
 ---
 
@@ -88,14 +99,21 @@ Due to the extremely sparse nature of this noise, careful hyperparameter tuning 
 
 ### Visualization of Noise Decomposition
 
-![Raw HSI](output/127th-HSI-Raw-HSI.png)
-<p align="center"> <em>Figure 6: Raw Hyperspectral Image</em> </p>
+<div align="center">
+  <img src="output/127th-HSI-Raw-HSI.png" alt="Raw HSI" style="margin-bottom: 0;">
+  <p><em>Figure 6: Raw Hyperspectral Image</em></p>
+</div>
 
-![Denoised Low Rank Component](output/127th-HSI-Denoised-(Low-Rank-Component).png)
-<p align="center"> <em>Figure 7: Denoised Low Rank Component</em> </p>
+<div align="center">
+  <img src="output/127th-HSI-Denoised-(Low-Rank-Component).png" alt="Denoised Low Rank Component" style="margin-bottom: 0;">
+  <p><em>Figure 7: Denoised Low Rank Component</em></p>
+</div>
 
-![Noise Component](output/127th-HSI-Noise-Component.png)
-<p align="center"> <em>Figure 8: Noise Component</em> </p>
+<div align="center">
+  <img src="output/127th-HSI-Noise-Component.png" alt="Noise Component" style="margin-bottom: 0;">
+  <p><em>Figure 8: Noise Component</em></p>
+</div>
+
 
 
 ---
@@ -104,8 +122,11 @@ Due to the extremely sparse nature of this noise, careful hyperparameter tuning 
 
 ### Model Performance
 
-<p align="center"> <img src="output/models-comparision.png") </p>
-<p align="center"> <em>Figure 9: Model Performance Comparison</em> </p>
+<div align="center">
+  <img src="output/models-comparision.png" alt="Model Performance Comparison" style="margin-bottom: 0;">
+  <p><em>Figure 9: Model Performance Comparison</em></p>
+</div>
+
 
 Key observations:
 - The SNN performed slightly better than SVM.
@@ -117,17 +138,31 @@ Key observations:
 
 These visualizations should be compared side-by-side with the ground truths in Figure 1 and 2.
 
-#### SVM Predictions:
-![raw prediction](output/SVM-Predicted-Classes-Raw-Data.png)
-![denoised prediction](output/SVM-Predicted-Classes-Denoised-Data.png)
-![raw with lidar prediction](output/SVM-Predicted-Classes-Raw-+-LiDAR-Data.png)
-![denoised with lidar prediction](output/SVM-Predicted-Classes-Denoised-+-LiDAR-Data.png)
+### SVM Predictions:
 
-#### SNN Predictions:
-![raw prediction](output/NN-Predicted-Classes-Raw-Data.png)
-![denoised prediction](output/NN-Predicted-Classes-Denoised-Data.png)
-![raw with lidar prediction](output/NN-Predicted-Classes-Raw-+-LiDAR-Data.png)
-![denoised with lidar prediction](output/NN-Predicted-Classes-Denoised-+-LiDAR-Data.png)
+<div align="center">
+  <img src="output/SVM-Predicted-Classes-Raw-Data.png" alt="raw prediction" style="margin-bottom: 0;">
+  <img src="output/SVM-Predicted-Classes-Denoised-Data.png" alt="denoised prediction" style="margin-bottom: 0;">
+  <img src="output/SVM-Predicted-Classes-Raw-+-LiDAR-Data.png" alt="raw with lidar prediction" style="margin-bottom: 0;">
+  <img src="output/SVM-Predicted-Classes-Denoised-+-LiDAR-Data.png" alt="denoised with lidar prediction" style="margin-bottom: 0;">
+</div>
+
+<p align="center"><em>Figure 10: Misclassified pixels: 'Salmon' - Correctly classified pixels: 'Green'</em></p>
+
+
+
+### SNN Predictions:
+
+<div align="center">
+  <img src="output/NN-Predicted-Classes-Raw-Data.png" alt="raw prediction" style="margin-bottom: 0;">
+  <img src="output/NN-Predicted-Classes-Denoised-Data.png" alt="denoised prediction" style="margin-bottom: 0;">
+  <img src="output/NN-Predicted-Classes-Raw-+-LiDAR-Data.png" alt="raw with lidar prediction" style="margin-bottom: 0;">
+  <img src="output/NN-Predicted-Classes-Denoised-+-LiDAR-Data.png" alt="denoised with lidar prediction" style="margin-bottom: 0;">
+</div>
+
+<p align="center"><em>Figure 11: Misclassified pixels: 'Salmon' - Correctly classified Pixels: 'Green'</em></p>
+
+
 
 ### Key Insights
 - Training classes were balanced, but spatial distribution was not.
